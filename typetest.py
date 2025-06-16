@@ -5,7 +5,7 @@ import sys
 
 def typing():
 
-    with open("typetestwords.txt", 'r') as file:
+    with open("words.txt", 'r') as file:
 
         l = list(range(100))
         random.shuffle(l)
@@ -16,7 +16,16 @@ def typing():
         text = ''
         text_list = []
 
-        count = int(input("How many words do you want to type?\n"))
+        while True:
+            
+            try:
+                count = int(input("How many words do you want to type?\n"))
+
+            except:
+                print("\nEnter an integer please")
+            
+            else:
+                break
         
         j = 0
         #Choosing random words from the document
