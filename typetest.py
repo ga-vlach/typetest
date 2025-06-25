@@ -1,17 +1,18 @@
 import random 
 import time
+import requests
 
 
 def typing():
 
+    r = requests.get("https://gist.githubusercontent.com/ga-vlach/02181e88f175bce3f54fb1211b2a9374/raw/c36a15492d403e8f42423aa324013b882030b34b/gistfile1.txt")
+
     while True:
 
-        with open("words.txt", 'r') as file:
-            
-                l = list(range(100))
+                l = list(range(1000))
                 random.shuffle(l)
 
-                data = file.read()
+                data = r.text
 
                 words = data.split()
 
