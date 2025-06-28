@@ -3,7 +3,6 @@ import time
 import requests
 import os
 
-
 class typeTest():
 
 
@@ -14,8 +13,9 @@ class typeTest():
 
                 try: 
                     file = open("typetestwords.txt", "x")
+                    file.close()
                 
-                except FileExistsError: #If file exists, stops the for loop
+                except FileExistsError: #If file exists, stops looking through the files
                     break
 
                 else: #Takes the text from the gist file and writes it into typetestwords.txt
@@ -25,9 +25,10 @@ class typeTest():
                     with open("typetestwords.txt" , "a") as file:
 
                         file.write(r.text)
+                        file.close()
 
 
-    def typing(test):
+    def typing(count):
 
         while True:
                     #makes a list of numbers ranging from 0-999 and shuffles it
@@ -59,7 +60,7 @@ class typeTest():
 
                         chosen_word = l[j]
 
-                        text += words[chosen_word] + ' ' #adds all the words that will be displayed into a list, also adds a sapce between each one
+                        text += words[chosen_word] + ' ' #adds all the words that will be displayed into a list, also adds a space between each one
                         text_list.append(words[chosen_word])
                         j+=1
 
@@ -67,6 +68,7 @@ class typeTest():
                     
                     print(f"{text}\n")
                     
+                    f.close() #closes file that was opened earlier
 
                     start_time = time.time()
                     
